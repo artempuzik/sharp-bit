@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html, body {
+  height: 100%;
+  max-width: 100vw;
+  min-width: 410px;
+  font-family: "Poppins", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-optical-sizing: auto;
+  overflow-x: hidden;
+  background: #E15C59;
+  color: #1C1C20 !important;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.man_bg {
+  background-image: url("../assets/bg/man.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+}
+
+.main_bg {
+  background: linear-gradient(90deg, #0F1616 0%, #466870 27.21%, #4C8696 49.93%, #406B7A 74.98%, #38444B 100%);
+}
+
+.footer_bg {
+  background: #426D7D;
+  margin-top: 5rem;
+  padding: 3rem 0;
+}
+
+main {
+  z-index: 1;
+}
+
+.main_title {
+  z-index: 1;
+  margin: 20rem 0 !important;
+}
+
+.main_title h1 {
+    font-size: 11rem;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: #ffffff;
+  margin-right: 1rem;
+}
+
+.nav-item a:hover {
+  background: #426D7D;
+}
+
+.nav-item a:hover svg path {
+  fill: #ffffff;
+}
+
+.card {
+  height: 100% !important;
+}
+
+.cards {
+  min-height: 40rem;
+}
+
+.cards .row {
+  top: -10rem;
+}
+
+.btn-card {
+  background: #195683;
+  color: #ffffff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 16px 32px 16px 32px !important;
+  gap: 12px;
+  box-shadow: 4px 12px 16px 0px #14202929;
+}
+
+.btn-card:hover {
+  background: transparent;
+  color: #195683;
+  border: 1px solid #195683;
+}
+
+.btn-card:hover svg path {
+    fill: #195683;
+}
+
+.navbar-toggler:hover {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url(
+  "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.text-grey {
+  color: #535353 !important;
+}
+
+.text-black {
+  color: #1C1C20 !important;
+}
+
+.fs-18 {
+  font-size: 1.1rem;
+}
+
+.fs-14 {
+  font-size: 0.9rem;
+}
+
+.fs-12 {
+  font-size: 0.7rem;
+}
+
+.fw-56 {
+  font-size: 3.5rem;
+}
+
+.navbar {
+  background: #426D7D !important;
+}
+
+.navbar:has(.collapsed){
+  background: transparent !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .man_bg {
+    background-size: cover;
+  }
+  .cards {
+    min-height: 45rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .cards {
+    min-height: 65rem;
+  }
+  .main_title h1 {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cards {
+    min-height: 115rem;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .cards {
+    min-height: 120rem;
+  }
+}
