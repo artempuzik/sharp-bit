@@ -139,11 +139,21 @@ main {
 }
 
 .navbar {
+  background: transparent !important;
+}
+
+.navbar:has(.show){
   background: #426D7D !important;
 }
 
-.navbar:has(.collapsed){
-  background: transparent !important;
+.form-control {
+  font-size: 0.8rem;
+  color: #1C1C20 !important;
+}
+
+form textarea::placeholder, input[type="text"]::placeholder {
+  font-size: 0.8rem;
+  color: #535353 !important;
 }
 
 @media screen and (max-width: 1200px) {

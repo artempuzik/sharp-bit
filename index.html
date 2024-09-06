@@ -28,7 +28,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbar">
-                    <ul class="navbar-nav my-2 my-lg-0 d-flex flex-row justify-content-center" style="--bs-scroll-height: 100px;">
+                    <ul class="navbar-nav my-2 my-lg-0 d-flex flex-row justify-content-center"
+                        style="--bs-scroll-height: 100px;">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -71,13 +72,15 @@
                             </a>
                         </li>
                     </ul>
-                  <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll align-items-center" style="--bs-scroll-height: 100px;">
-                    <li class="d-flex align-items-center mx-0 mt-2 mt-md-0 ms-md-2">
-                      <button type="button" class="btn btn-outline-light text-uppercase rounded-pill py-2 px-3">
-                        Discuss a project
-                      </button>
-                    </li>
-                  </ul>
+                    <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll align-items-center"
+                        style="--bs-scroll-height: 100px;">
+                        <li class="d-flex align-items-center mx-0 mt-2 mt-md-0 ms-md-2">
+                            <button data-bs-toggle="modal" data-bs-target="#discuss_modal" type="button"
+                                    class="btn btn-outline-light text-uppercase rounded-pill py-2 px-3">
+                                Discuss a project
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -692,12 +695,102 @@
                     <li class="d-flex align-items-center mx-0 mt-2 mt-md-0 ms-md-2">
                     </li>
                 </ul>
-              <button type="button" class="mt-3 m-md-0 col-md-3 btn btn-outline-light text-uppercase rounded-pill py-2 px-3">
-                Discuss a project
-              </button>
+                <button data-bs-toggle="modal" data-bs-target="#discuss_modal" type="button"
+                        class="mt-3 m-md-0 col-md-3 btn btn-outline-light text-uppercase rounded-pill py-2 px-3">
+                    Discuss a project
+                </button>
             </div>
         </div>
     </footer>
 </section>
+<div class="modal fade" id="discuss_modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body border-0">
+                <h1 class="modal-title text-center text-black fs-3">Discuss a project</h1>
+                <p class="text-black text-center fs-14">Leave your details and we'll get back to you</p>
+                <form
+                        action="mailto:sergey.ryabenko@gmail.com"
+                        method="post"
+                        id="form"
+                        enctype="text/plain"
+                >
+                    <div class="mb-3">
+                        <input type="text" class="form-control text-black fs-14" id="full-name"
+                               placeholder="Full Name *" required>
+                        <div class="invalid-feedback">Please enter your full name.</div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control text-black fs-14" id="email" placeholder="Your email *"
+                               required>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="tel" class="form-control text-black fs-14" id="phone"
+                               placeholder="Your phone *" required>
+                        <div class="invalid-feedback">Please enter a valid phone number.</div>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control text-black fs-14" id="comment-text" placeholder="Enter your comment"
+                                  rows="4"></textarea>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button data-bs-toggle="modal" data-bs-target="#discuss_thanks" type="submit" class="btn btn-card rounded-pill m-auto" id="submit-button">
+                            Discuss a project
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="discuss_thanks" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body border-0">
+                <h1 class="modal-title text-center text-black fs-3">Thank you!</h1>
+                <p class="text-black text-center fs-14">We received your request and we'll get back to you shortly</p>
+                <div class="modal-footer border-0">
+                    <button data-bs-dismiss="modal" data-bs-target="#discuss_thanks" type="button" class="btn btn-card rounded-pill m-auto">
+                        Ok
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        let form = event.target;
+
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+        } else {
+            const email = document.getElementById('email').value;
+
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/i;
+
+            let isValid = true;
+
+            if (!emailPattern.test(email)) {
+                isValid = false;
+                document.getElementById('email').classList.add('is-invalid');
+            } else {
+                document.getElementById('email').classList.remove('is-invalid');
+            }
+
+            if (isValid) {
+                form.submit();
+            }
+        }
+    });
+</script>
 </body>
 </html>
