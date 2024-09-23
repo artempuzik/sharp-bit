@@ -18,12 +18,44 @@ html, body {
   margin: 0;
 }
 
+#header.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #426D7D !important;
+}
+
+#header.sticky .container {
+  justify-content: space-between;
+}
+
+#header.show .container {
+  justify-content: space-between;
+}
+
+#header .container {
+  justify-content: end;
+}
+
+#header.show .navbar-brand{
+  display: flex;
+}
+
+.navbar-brand {
+  display: none;
+}
+
+.sticky .navbar-brand {
+  display: flex;
+}
+
 .man_bg {
   background-image: url("../assets/bg/man.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 100%;
+  height: 80svh;
 }
 
 .main_bg {
@@ -42,7 +74,7 @@ main {
 
 .main_title {
   z-index: 1;
-  margin: 20rem 0 !important;
+  margin: 10rem 0 !important;
 }
 
 .main_title h1 {
@@ -78,7 +110,7 @@ main {
 }
 
 .cards {
-  min-height: 40rem;
+  min-height: 25rem;
 }
 
 .cards .row {
@@ -156,18 +188,25 @@ form textarea::placeholder, input[type="text"]::placeholder {
   color: #535353 !important;
 }
 
+@media screen and (max-height: 991px) {
+  .main_title {
+    z-index: 1;
+    margin: 0 !important;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .man_bg {
     background-size: cover;
   }
   .cards {
-    min-height: 45rem;
+    min-height: 30rem;
   }
 }
 
 @media screen and (max-width: 991px) {
   .cards {
-    min-height: 65rem;
+    min-height: 40rem;
   }
   .main_title h1 {
     font-size: 5rem;
@@ -176,12 +215,6 @@ form textarea::placeholder, input[type="text"]::placeholder {
 
 @media screen and (max-width: 768px) {
   .cards {
-    min-height: 115rem;
-  }
-}
-
-@media screen and (max-width: 568px) {
-  .cards {
-    min-height: 120rem;
+    min-height: 70rem;
   }
 }
